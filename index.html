@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Note Taking App</title>
+</head>
+<body>
+	<h1>Note Taking App</h1>
+	<form method="post" action="save_note.php">
+		<label for="note">Enter your note:</label><br>
+		<textarea name="note" id="note" rows="10" cols="50"></textarea><br>
+		<input type="submit" value="Save">
+	</form>
+	<?php
+		$file = "notes.txt";
+		if(file_exists($file)) {
+			$notes = file($file);
+			foreach($notes as $note) {
+				echo "<p>".$note."</p>";
+			}
+		}
+	?>
+</body>
+</html>
